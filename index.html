@@ -62,13 +62,20 @@
         lightboxImage.src = photo.dataset.full;
         lightboxImage.alt = image.alt;
         lightbox.showModal();
+        document.body.classList.add('lightbox-open');
       });
     });
 
-    const closeLightbox = () => lightbox.close();
+    const closeLightbox = () => {
+      lightbox.close();
+      document.body.classList.remove('lightbox-open');
+    };
     closeButton.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (event) => {
       if (event.target === lightbox) closeLightbox();
+    });
+    lightbox.addEventListener('close', () => {
+      document.body.classList.remove('lightbox-open');
     });
   </script>
 </body>
