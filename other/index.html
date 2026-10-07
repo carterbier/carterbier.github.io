@@ -60,6 +60,13 @@
     </dialog>
   </main>
   <script>
+
+    document.addEventListener('click', (event) => {
+      document.querySelectorAll('.nav-menu[open]').forEach((menu) => {
+        if (!menu.contains(event.target)) menu.removeAttribute('open');
+      });
+    });
+
     const lightbox=document.getElementById('lightbox'), lightboxImage=lightbox.querySelector('.lightbox-image'), closeButton=lightbox.querySelector('.lightbox-close');
     document.querySelectorAll('.photo').forEach(photo=>photo.addEventListener('click',()=>{const image=photo.querySelector('img');lightboxImage.src=photo.dataset.full;lightboxImage.alt=image.alt;lightbox.showModal();document.documentElement.classList.add('lightbox-open');document.body.classList.add('lightbox-open');}));
     const closeLightbox=()=>{lightbox.close();document.documentElement.classList.remove('lightbox-open');document.body.classList.remove('lightbox-open');};
