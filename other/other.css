@@ -273,18 +273,20 @@ body.lightbox-open {
 .nav-dropdown {
   position: absolute;
   top: 100%;
-  right: 0;
+  left: 0;
+  right: auto;
   z-index: 10;
   min-width: 100%;
   padding-top: 4px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   background: var(--bg);
 }
 .nav-dropdown .nav-link {
   display: block;
   white-space: nowrap;
   padding: 8px 2px;
+  font-size: clamp(20px, 2vw, 26px);
 }
 .nav-menu:not([open]) .nav-dropdown { display: none; }
