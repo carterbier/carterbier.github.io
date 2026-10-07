@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c0c">
+  <meta name="description" content="Other photographs by Carter.">
+  <title>Other — Carter's Photos</title>
+  <link rel="stylesheet" href="other.css">
+</head>
+<body>
+  <main class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Carter's Photos home">CARTER’S PHOTOS</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <details class="nav-menu">
+          <summary class="nav-current"><span class="nav-link active">OTHER</span><span class="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span></summary>
+          <div class="nav-dropdown">
+            <a class="nav-link" href="/">HOME</a>
+            <a class="nav-link" href="/animals/">ANIMALS</a>
+          </div>
+        </details>
+      </nav>
+    </header>
+    <section class="gallery" aria-label="Other photo gallery">
+      <button class="photo" type="button" data-full="/images/photos/p1330180.jpg" aria-label="Open enlarged photograph">
+        <img src="/images/photos/p1330180.jpg" alt="Photograph 1" loading="eager" decoding="async">
+      </button>
+      <button class="photo" type="button" data-full="/images/photos/p1340002.jpg" aria-label="Open enlarged photograph">
+        <img src="/images/photos/p1340002.jpg" alt="Photograph 2" loading="eager" decoding="async">
+      </button>
+      <button class="photo" type="button" data-full="/images/photos/p1340006.jpg" aria-label="Open enlarged photograph">
+        <img src="/images/photos/p1340006.jpg" alt="Photograph 3" loading="lazy" decoding="async">
+      </button>
+      <button class="photo" type="button" data-full="/images/photos/p1350008.jpg" aria-label="Open enlarged photograph">
+        <img src="/images/photos/p1350008.jpg" alt="Photograph 4" loading="lazy" decoding="async">
+      </button>
+      <button class="photo" type="button" data-full="/images/photos/p1350046.jpg" aria-label="Open enlarged photograph">
+        <img src="/images/photos/p1350046.jpg" alt="Photograph 5" loading="lazy" decoding="async">
+      </button>
+      <button class="photo" type="button" data-full="/images/photos/p1350712-2.jpg" aria-label="Open enlarged photograph">
+        <img src="/images/photos/p1350712-2.jpg" alt="Photograph 6" loading="lazy" decoding="async">
+      </button>
+      <button class="photo" type="button" data-full="/images/photos/p1350985-2.jpg" aria-label="Open enlarged photograph">
+        <img src="/images/photos/p1350985-2.jpg" alt="Photograph 7" loading="lazy" decoding="async">
+      </button>
+      <button class="photo" type="button" data-full="/images/photos/p3560394.jpg" aria-label="Open enlarged photograph">
+        <img src="/images/photos/p3560394.jpg" alt="Photograph 8" loading="lazy" decoding="async">
+      </button>
+      <button class="photo" type="button" data-full="/images/photos/p3560405.jpg" aria-label="Open enlarged photograph">
+        <img src="/images/photos/p3560405.jpg" alt="Photograph 9" loading="lazy" decoding="async">
+      </button>
+      <button class="photo" type="button" data-full="/images/photos/p3560414-1-1.jpg" aria-label="Open enlarged photograph">
+        <img src="/images/photos/p3560414-1-1.jpg" alt="Photograph 10" loading="lazy" decoding="async">
+      </button>
+    </section>
+    <dialog class="lightbox" id="lightbox" aria-label="Enlarged photograph">
+      <button class="lightbox-close" type="button" aria-label="Close enlarged photograph">×</button>
+      <img class="lightbox-image" src="" alt="">
+    </dialog>
+  </main>
+  <script>
+    const lightbox=document.getElementById('lightbox'), lightboxImage=lightbox.querySelector('.lightbox-image'), closeButton=lightbox.querySelector('.lightbox-close');
+    document.querySelectorAll('.photo').forEach(photo=>photo.addEventListener('click',()=>{const image=photo.querySelector('img');lightboxImage.src=photo.dataset.full;lightboxImage.alt=image.alt;lightbox.showModal();document.documentElement.classList.add('lightbox-open');document.body.classList.add('lightbox-open');}));
+    const closeLightbox=()=>{lightbox.close();document.documentElement.classList.remove('lightbox-open');document.body.classList.remove('lightbox-open');};
+    closeButton.addEventListener('click',closeLightbox);
+    lightbox.addEventListener('click',event=>{if(event.target===lightbox)closeLightbox();});
+    lightbox.addEventListener('close',()=>{document.documentElement.classList.remove('lightbox-open');document.body.classList.remove('lightbox-open');});
+  </script>
+</body>
+</html>
