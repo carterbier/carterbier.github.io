@@ -83,11 +83,11 @@ body {
 .photo {
   display: block;
   overflow: hidden;
-  background: #202222;
-  aspect-ratio: auto;
+  background: transparent;
+  aspect-ratio: 1.72 / 1;
   text-decoration: none;
-  border: 0;
-  padding: 3px;
+  border: 1px solid #292b2b;
+  padding: 0;
   box-shadow: none;
   cursor: zoom-in;
 }
@@ -95,7 +95,7 @@ body {
 .photo img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   transition: transform 220ms ease, opacity 220ms ease;
@@ -138,7 +138,7 @@ body {
   }
 
   .photo {
-    aspect-ratio: auto;
+    aspect-ratio: 3 / 2;
   }
 }
 
