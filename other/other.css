@@ -549,3 +549,9 @@ body.lightbox-open {
     min-width: 190px;
   }
 }
+
+
+/* Align dropdown pointer beneath hamburger */
+.nav-dropdown::before {
+  right: 8px;
+}
