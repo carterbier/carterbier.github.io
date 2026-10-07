@@ -62,12 +62,14 @@
         lightboxImage.src = photo.dataset.full;
         lightboxImage.alt = image.alt;
         lightbox.showModal();
+        document.documentElement.classList.add('lightbox-open');
         document.body.classList.add('lightbox-open');
       });
     });
 
     const closeLightbox = () => {
       lightbox.close();
+      document.documentElement.classList.remove('lightbox-open');
       document.body.classList.remove('lightbox-open');
     };
     closeButton.addEventListener('click', closeLightbox);
@@ -75,6 +77,7 @@
       if (event.target === lightbox) closeLightbox();
     });
     lightbox.addEventListener('close', () => {
+      document.documentElement.classList.remove('lightbox-open');
       document.body.classList.remove('lightbox-open');
     });
   </script>
