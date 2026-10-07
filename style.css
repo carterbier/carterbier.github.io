@@ -86,6 +86,9 @@ body {
   background: #050505;
   aspect-ratio: 1.72 / 1;
   text-decoration: none;
+  border: 0;
+  padding: 0;
+  cursor: zoom-in;
 }
 
 .photo img {
@@ -129,10 +132,6 @@ body {
     letter-spacing: .16em;
   }
 
-  .nav-placeholder {
-    display: none;
-  }
-
   .gallery {
     grid-template-columns: 1fr;
   }
@@ -164,4 +163,72 @@ body {
 /* Per-photo framing refinements */
 .photo-squirrel img {
   object-position: 50% 42%;
+}
+
+/* In-page enlarged photo viewer */
+.lightbox {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: clamp(18px, 4vw, 48px);
+  border: 0;
+  background: rgba(5, 6, 6, .96);
+  overflow: hidden;
+}
+
+.lightbox[open] {
+  display: grid;
+  place-items: center;
+}
+
+.lightbox::backdrop {
+  background: rgba(0, 0, 0, .86);
+}
+
+.lightbox-image {
+  display: block;
+  max-width: 94vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  z-index: 2;
+  border: 0;
+  padding: 6px 10px;
+  background: transparent;
+  color: #f1f1ef;
+  font: 300 34px/1 Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .nav {
+    gap: 14px;
+  }
+
+  .nav-placeholder {
+    display: inline-block;
+  }
+
+  .lightbox {
+    padding: 12px;
+  }
+
+  .lightbox-image {
+    max-width: calc(100vw - 24px);
+    max-height: 86vh;
+  }
+
+  .lightbox-close {
+    top: 10px;
+    right: 10px;
+  }
 }
