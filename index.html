@@ -58,6 +58,13 @@
   </main>
 
   <script>
+
+    document.addEventListener('click', (event) => {
+      document.querySelectorAll('.nav-menu[open]').forEach((menu) => {
+        if (!menu.contains(event.target)) menu.removeAttribute('open');
+      });
+    });
+
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = lightbox.querySelector('.lightbox-image');
     const closeButton = lightbox.querySelector('.lightbox-close');
