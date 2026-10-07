@@ -290,3 +290,7 @@ body.lightbox-open {
   font-size: clamp(20px, 2vw, 26px);
 }
 .nav-menu:not([open]) .nav-dropdown { display: none; }
+
+
+/* Active dropdown label has no underline */
+.nav-current .nav-link.active::after { display: none; }
