@@ -476,3 +476,21 @@ body.lightbox-open {
   .lightbox-prev { left: 4px; }
   .lightbox-next { right: 4px; }
 }
+
+
+/* Temporary gallery numbers for photo selection */
+.photo { position: relative; }
+.temp-photo-number {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  z-index: 2;
+  min-width: 28px;
+  padding: 4px 7px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, .72);
+  color: #fff;
+  font: 600 15px/1.2 Arial, sans-serif;
+  text-align: center;
+  pointer-events: none;
+}
