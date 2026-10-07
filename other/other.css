@@ -294,3 +294,40 @@ body.lightbox-open {
 
 /* Active dropdown label has no underline */
 .nav-current .nav-link.active::after { display: none; }
+
+
+/* Final navigation sizing/alignment */
+.nav-current .nav-link.active {
+  font-size: clamp(18px, 2.15vw, 27px);
+  letter-spacing: .20em;
+}
+.nav-dropdown {
+  left: 2px;
+  right: auto;
+  align-items: flex-start;
+}
+.nav-dropdown .nav-link {
+  font-size: clamp(14px, 1.4vw, 18px);
+  letter-spacing: .20em;
+  text-align: left;
+}
+@media (max-width: 700px) {
+  .nav-current .nav-link.active {
+    font-size: clamp(16px, 5vw, 20px);
+    letter-spacing: .16em;
+  }
+  .nav-dropdown .nav-link {
+    font-size: 12px;
+    letter-spacing: .16em;
+  }
+}
+@media (max-width: 430px) {
+  .nav-current .nav-link.active {
+    font-size: 15px;
+    letter-spacing: .13em;
+  }
+  .nav-dropdown .nav-link {
+    font-size: 11px;
+    letter-spacing: .13em;
+  }
+}
