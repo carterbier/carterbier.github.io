@@ -311,3 +311,19 @@ body.lightbox-open {
     letter-spacing: .13em;
   }
 }
+
+
+/* Closed menu is borderless and compact */
+.nav-menu:not([open]) {
+  border-color: transparent;
+  background: transparent;
+}
+.nav-menu:not([open]) .nav-current {
+  min-width: 0;
+  padding-left: 0;
+  padding-right: 0;
+  gap: 12px;
+}
+.nav-menu[open] .nav-current {
+  gap: 12px;
+}
