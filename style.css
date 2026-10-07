@@ -242,3 +242,49 @@ body.lightbox-open {
   overflow: hidden;
   overscroll-behavior: none;
 }
+
+
+/* Gallery page dropdown navigation */
+.nav-menu { position: relative; }
+.nav-menu summary { list-style: none; }
+.nav-menu summary::-webkit-details-marker { display: none; }
+.nav-current {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.nav-current .nav-link { pointer-events: none; }
+.menu-icon {
+  width: 14px;
+  height: 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.menu-icon i {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--text);
+}
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 10;
+  min-width: 100%;
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: var(--bg);
+}
+.nav-dropdown .nav-link {
+  display: block;
+  white-space: nowrap;
+  padding: 8px 2px;
+}
+.nav-menu:not([open]) .nav-dropdown { display: none; }
