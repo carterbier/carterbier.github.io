@@ -444,3 +444,35 @@ body.lightbox-open {
 .nav-dropdown::before {
   right: 8px;
 }
+
+
+/* Lightbox gallery navigation */
+.lightbox-nav {
+  position: fixed;
+  top: 50%;
+  z-index: 3;
+  width: 48px;
+  height: 64px;
+  padding: 0;
+  border: 0;
+  background: rgba(0,0,0,.28);
+  color: rgba(255,255,255,.88);
+  font: 300 48px/1 Arial, sans-serif;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+.lightbox-prev { left: 14px; }
+.lightbox-next { right: 14px; }
+@media (hover: hover) and (pointer: fine) {
+  .lightbox-nav:hover { background: rgba(0,0,0,.55); color: #fff; }
+}
+@media (max-width: 700px) {
+  .lightbox-nav {
+    width: 40px;
+    height: 56px;
+    font-size: 40px;
+    background: rgba(0,0,0,.18);
+  }
+  .lightbox-prev { left: 4px; }
+  .lightbox-next { right: 4px; }
+}
