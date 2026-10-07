@@ -20,31 +20,57 @@
     </header>
 
     <section class="gallery" aria-label="Photo gallery">
-      <a class="photo" href="images/p3620089-2.jpg" target="_blank" rel="noopener">
+      <button class="photo" type="button" data-full="images/p3620089-2.jpg" aria-label="Open enlarged photograph">
         <img src="images/p3620089-2.jpg" alt="The moon against a dark night sky" loading="eager" decoding="async">
-      </a>
-      <a class="photo photo-squirrel" href="images/p3880610.jpg" target="_blank" rel="noopener">
+      </button>
+      <button class="photo photo-squirrel" type="button" data-full="images/p3880610.jpg" aria-label="Open enlarged photograph">
         <img src="images/p3880610.jpg" alt="Squirrel portrait" loading="eager" decoding="async">
-      </a>
-      <a class="photo" href="images/p1350046.jpg" target="_blank" rel="noopener">
+      </button>
+      <button class="photo" type="button" data-full="images/p1350046.jpg" aria-label="Open enlarged photograph">
         <img src="images/p1350046.jpg" alt="Solar eclipse" loading="lazy" decoding="async">
-      </a>
-      <a class="photo" href="images/p3380422.jpg" target="_blank" rel="noopener">
+      </button>
+      <button class="photo" type="button" data-full="images/p3380422.jpg" aria-label="Open enlarged photograph">
         <img src="images/p3380422.jpg" alt="American robin portrait" loading="lazy" decoding="async">
-      </a>
-      <a class="photo" href="images/p3610479-2.jpg" target="_blank" rel="noopener">
+      </button>
+      <button class="photo" type="button" data-full="images/p3610479-2.jpg" aria-label="Open enlarged photograph">
         <img src="images/p3610479-2.jpg" alt="Pink flower" loading="lazy" decoding="async">
-      </a>
-      <a class="photo" href="images/p2930012-4.jpg" target="_blank" rel="noopener">
+      </button>
+      <button class="photo" type="button" data-full="images/p2930012-4.jpg" aria-label="Open enlarged photograph">
         <img src="images/p2930012-4.jpg" alt="Mourning doves" loading="lazy" decoding="async">
-      </a>
-      <a class="photo" href="images/p3000961-4.jpg" target="_blank" rel="noopener">
+      </button>
+      <button class="photo" type="button" data-full="images/p3000961-4.jpg" aria-label="Open enlarged photograph">
         <img src="images/p3000961-4.jpg" alt="Blue jay portrait" loading="lazy" decoding="async">
-      </a>
-      <a class="photo" href="images/p3610771.jpg" target="_blank" rel="noopener">
+      </button>
+      <button class="photo" type="button" data-full="images/p3610771.jpg" aria-label="Open enlarged photograph">
         <img src="images/p3610771.jpg" alt="Pink flower against a blue background" loading="lazy" decoding="async">
-      </a>
+      </button>
     </section>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Enlarged photograph">
+      <button class="lightbox-close" type="button" aria-label="Close enlarged photograph">×</button>
+      <img class="lightbox-image" src="" alt="">
+    </dialog>
   </main>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = lightbox.querySelector('.lightbox-image');
+    const closeButton = lightbox.querySelector('.lightbox-close');
+
+    document.querySelectorAll('.photo').forEach((photo) => {
+      photo.addEventListener('click', () => {
+        const image = photo.querySelector('img');
+        lightboxImage.src = photo.dataset.full;
+        lightboxImage.alt = image.alt;
+        lightbox.showModal();
+      });
+    });
+
+    const closeLightbox = () => lightbox.close();
+    closeButton.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+  </script>
 </body>
 </html>
