@@ -176,6 +176,6 @@ body.lightbox-open {
 .nav-current .nav-link { pointer-events: none; }
 .menu-icon { width: 14px; height: 11px; display: flex; flex-direction: column; justify-content: space-between; margin-bottom: 4px; }
 .menu-icon i { display: block; width: 100%; height: 1px; background: var(--text); }
-.nav-dropdown { position: absolute; top: 100%; right: 0; z-index: 10; min-width: 100%; padding-top: 4px; display: flex; flex-direction: column; align-items: flex-end; background: var(--bg); }
-.nav-dropdown .nav-link { display: block; white-space: nowrap; padding: 8px 2px; }
+.nav-dropdown { position: absolute; top: 100%; left: 0; right: auto; z-index: 10; min-width: 100%; padding-top: 4px; display: flex; flex-direction: column; align-items: flex-start; background: var(--bg); }
+.nav-dropdown .nav-link { display: block; white-space: nowrap; padding: 8px 2px; font-size: clamp(20px, 2vw, 26px); }
 .nav-menu:not([open]) .nav-dropdown { display: none; }
