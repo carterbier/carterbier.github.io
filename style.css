@@ -282,7 +282,15 @@ html.lightbox-open, body.lightbox-open {
   .nav-dropdown .nav-link:hover .nav-arrow { transform: translateX(2px); }
 }
 @media (hover: none) and (pointer: coarse) {
-  .lightbox-nav { display: none; }
+  .lightbox-nav {
+    display: block;
+    width: 40px;
+    height: 56px;
+    font-size: 42px;
+    background: rgba(0,0,0,.42);
+  }
+  .lightbox-prev { left: 4px; }
+  .lightbox-next { right: 4px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .photo img { transition: none; }
