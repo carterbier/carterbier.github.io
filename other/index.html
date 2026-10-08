@@ -91,71 +91,9 @@
       <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous photograph">‹</button>
       <button class="lightbox-nav lightbox-next" type="button" aria-label="Next photograph">›</button>
       <img class="lightbox-image" src="" alt="">
+      <output class="lightbox-counter" aria-live="off"></output>
     </dialog>
   </main>
-  <script>
-
-    document.addEventListener('click', (event) => {
-      document.querySelectorAll('.nav-menu[open]').forEach((menu) => {
-        if (!menu.contains(event.target)) menu.removeAttribute('open');
-      });
-    });
-
-    const lightbox=document.getElementById('lightbox'), lightboxImage=lightbox.querySelector('.lightbox-image'), closeButton=lightbox.querySelector('.lightbox-close');
-    document.querySelectorAll('.photo').forEach(photo=>photo.addEventListener('click',()=>{const image=photo.querySelector('img');lightboxImage.src=photo.dataset.full;lightboxImage.alt=image.alt;lightbox.showModal();document.documentElement.classList.add('lightbox-open');document.body.classList.add('lightbox-open');}));
-    const closeLightbox=()=>{lightbox.close();document.documentElement.classList.remove('lightbox-open');document.body.classList.remove('lightbox-open');};
-    closeButton.addEventListener('click',closeLightbox);
-    lightbox.addEventListener('click',event=>{if(event.target===lightbox)closeLightbox();});
-    lightbox.addEventListener('close',()=>{document.documentElement.classList.remove('lightbox-open');document.body.classList.remove('lightbox-open');});
-  
-    const galleryPhotos = Array.from(document.querySelectorAll('.photo'));
-    let lightboxIndex = 0;
-    const prevButton = lightbox.querySelector('.lightbox-prev');
-    const nextButton = lightbox.querySelector('.lightbox-next');
-
-    const showLightboxPhoto = (index) => {
-      lightboxIndex = (index + galleryPhotos.length) % galleryPhotos.length;
-      const photo = galleryPhotos[lightboxIndex];
-      const image = photo.querySelector('img');
-      lightboxImage.src = photo.dataset.full;
-      lightboxImage.alt = image.alt;
-    };
-
-    galleryPhotos.forEach((photo, index) => {
-      photo.addEventListener('click', () => { lightboxIndex = index; });
-    });
-
-    prevButton.addEventListener('click', (event) => {
-      event.stopPropagation();
-      showLightboxPhoto(lightboxIndex - 1);
-    });
-    nextButton.addEventListener('click', (event) => {
-      event.stopPropagation();
-      showLightboxPhoto(lightboxIndex + 1);
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (!lightbox.open) return;
-      if (event.key === 'ArrowLeft') showLightboxPhoto(lightboxIndex - 1);
-      if (event.key === 'ArrowRight') showLightboxPhoto(lightboxIndex + 1);
-      if (event.key === 'Escape') closeLightbox();
-    });
-
-    let touchStartX = 0;
-    let touchStartY = 0;
-    lightbox.addEventListener('touchstart', (event) => {
-      const touch = event.changedTouches[0];
-      touchStartX = touch.clientX;
-      touchStartY = touch.clientY;
-    }, { passive: true });
-    lightbox.addEventListener('touchend', (event) => {
-      const touch = event.changedTouches[0];
-      const dx = touch.clientX - touchStartX;
-      const dy = touch.clientY - touchStartY;
-      if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.25) {
-        showLightboxPhoto(lightboxIndex + (dx < 0 ? 1 : -1));
-      }
-    }, { passive: true });
-  </script>
+  <script src="/gallery.js" defer></script>
 </body>
 </html>
