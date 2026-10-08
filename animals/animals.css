@@ -32,12 +32,17 @@ body {
 .brand {
   color: var(--text);
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   font-size: clamp(18px, 2.15vw, 27px);
   font-weight: 400;
   letter-spacing: .20em;
   line-height: 1;
   white-space: nowrap;
 }
+
+.brand-icon { width: 34px; height: 34px; flex: 0 0 auto; object-fit: cover; border-radius: 50%; }
 
 /* Header navigation */
 .nav { display: flex; align-items: center; gap: clamp(28px, 4vw, 50px); }
@@ -252,7 +257,8 @@ html.lightbox-open, body.lightbox-open {
 @media (max-width: 700px) {
   :root { --edge: 16px; --gap: 12px; }
   .site-header { min-height: 74px; align-items: center; }
-  .brand { font-size: clamp(16px, 5vw, 20px); letter-spacing: .16em; }
+  .brand { font-size: clamp(16px, 5vw, 20px); letter-spacing: .16em; gap: 8px; }
+  .brand-icon { width: 26px; height: 26px; }
   .nav { gap: 14px; }
   .nav-link { font-size: 9px; letter-spacing: .16em; }
   .gallery { grid-template-columns: 1fr; }
@@ -270,7 +276,8 @@ html.lightbox-open, body.lightbox-open {
 }
 @media (max-width: 430px) {
   .site-header { min-height: 68px; }
-  .brand { font-size: 15px; letter-spacing: .13em; }
+  .brand { font-size: 15px; letter-spacing: .13em; gap: 6px; }
+  .brand-icon { width: 22px; height: 22px; }
   .nav-link { font-size: 8px; }
   .nav-current .nav-link.active { font-size: 15px; letter-spacing: .13em; }
   .nav-dropdown { width: 190px; min-width: 190px; }
