@@ -66,19 +66,3 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closeLightbox();
 });
 
-let touchStartX = 0;
-let touchStartY = 0;
-lightbox.addEventListener('touchstart', (event) => {
-  if (event.touches.length !== 1) return;
-  touchStartX = event.touches[0].clientX;
-  touchStartY = event.touches[0].clientY;
-}, { passive: true });
-lightbox.addEventListener('touchend', (event) => {
-  if (event.changedTouches.length !== 1) return;
-  const touch = event.changedTouches[0];
-  const dx = touch.clientX - touchStartX;
-  const dy = touch.clientY - touchStartY;
-  if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.25) {
-    showLightboxPhoto(lightboxIndex + (dx < 0 ? 1 : -1));
-  }
-}, { passive: true });
