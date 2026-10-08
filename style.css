@@ -19,6 +19,10 @@ body {
 }
 .site-shell { width: 100%; padding: 0 var(--edge) clamp(40px, 7vw, 90px); }
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg);
   min-height: clamp(82px, 8.4vw, 100px);
   display: flex;
   align-items: center;
