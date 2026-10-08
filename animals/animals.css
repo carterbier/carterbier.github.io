@@ -82,8 +82,10 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  opacity: 0;
   transition: transform 220ms ease, opacity 220ms ease;
 }
+.photo img.is-loaded { opacity: 1; }
 .photo-squirrel img { object-position: 50% 42%; }
 
 /* Fullscreen viewer */
@@ -142,6 +144,18 @@ html.lightbox-open, body.lightbox-open {
 }
 .lightbox-prev { left: 14px; }
 .lightbox-next { right: 14px; }
+
+/* Quiet lightbox position indicator */
+.lightbox-counter {
+  position: fixed;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  color: #b8b9b7;
+  font: 400 12px/1.4 Arial, Helvetica, sans-serif;
+  letter-spacing: .12em;
+  pointer-events: none;
+}
 
 /* Dropdown menu */
 .nav-menu { position: relative; border: 0; border-radius: 0; background: transparent; }
