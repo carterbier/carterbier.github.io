@@ -76,7 +76,7 @@ body {
   display: block;
   overflow: hidden;
   background: transparent;
-  aspect-ratio: 1.72 / 1;
+  aspect-ratio: 3 / 2;
   border: 1px solid #292b2b;
   padding: 0;
   box-shadow: none;
@@ -466,13 +466,8 @@ body.lightbox-open {
 @media (hover: hover) and (pointer: fine) {
   .lightbox-nav:hover { background: rgba(0,0,0,.55); color: #fff; }
 }
-@media (max-width: 700px) {
-  .lightbox-nav {
-    width: 40px;
-    height: 56px;
-    font-size: 40px;
-    background: rgba(0,0,0,.18);
-  }
-  .lightbox-prev { left: 4px; }
-  .lightbox-next { right: 4px; }
+
+/* Touch devices use swipe navigation, without overlay arrows. */
+@media (hover: none) and (pointer: coarse) {
+  .lightbox-nav { display: none; }
 }
