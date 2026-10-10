@@ -87,10 +87,9 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  opacity: 0;
+  opacity: 1;
   transition: transform 220ms ease, opacity 220ms ease;
 }
-.photo img.is-loaded { opacity: 1; }
 .photo-squirrel img { object-position: 50% 42%; }
 
 /* Fullscreen viewer */
@@ -312,3 +311,20 @@ html.lightbox-open, body.lightbox-open {
 @media (prefers-reduced-motion: reduce) {
   .photo img { transition: none; }
 }
+
+/* Image loading status is visible only while a full-resolution image is pending. */
+.lightbox.is-loading .lightbox-image { opacity: 0; }
+.lightbox.is-loading::after {
+  content: "";
+  position: fixed;
+  top: 50%; left: 50%;
+  width: 22px; height: 22px;
+  margin: -11px;
+  border: 2px solid rgba(255,255,255,.2);
+  border-top-color: #d9d9d7;
+  border-radius: 50%;
+  animation: lightbox-spin .75s linear infinite;
+  pointer-events: none;
+}
+@keyframes lightbox-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .lightbox.is-loading::after { animation: none; } }
