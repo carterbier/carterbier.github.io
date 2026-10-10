@@ -27,5 +27,6 @@ jobs:
           git add -A images index.html animals/index.html other/index.html
           if ! git diff --cached --quiet; then
             git commit -m "Optimize gallery previews and remove unused image files"
+            git pull --rebase origin main
             git push
           fi
