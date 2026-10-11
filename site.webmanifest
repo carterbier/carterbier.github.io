@@ -1,0 +1,17 @@
+{
+  "name": "Carter's Photos",
+  "short_name": "Carter's Photos",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b0c0c",
+  "theme_color": "#0b0c0c",
+  "icons": [
+    {
+      "src": "/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
